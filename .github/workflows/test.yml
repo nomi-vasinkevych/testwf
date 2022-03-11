@@ -11,6 +11,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - name: Attach PDF
-      if: contains('["kingthorin","lmnopxyzabc"]', github.actor)
+    - name: Say Hi
+      if: contains("kingthorin", github.actor)
       run: echo ${{ github.event.inputs.who }}
