@@ -2,15 +2,11 @@ name: Test
 
 on:
   workflow_dispatch:
-    inputs:
-      who:
-        description: 'Who?'
-        required: true
-        default: 'fred'
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
     - name: Say Hi
-      if: contains('jane fred', github.actor)
-      run: echo ${{ github.event.inputs.who }}
+      if: contains('jane kingthorin fred', github.actor)
+      run: echo fred
