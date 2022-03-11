@@ -12,5 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Say Hi
-      if: contains('kingthorin', github.actor)
+      if: contains('jane kingthorin fred', github.actor)
       run: echo ${{ github.event.inputs.who }}
