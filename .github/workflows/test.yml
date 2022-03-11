@@ -1,0 +1,15 @@
+name: Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      who:
+        description: 'Who?'
+        required: true
+        default: 'fred'
+jobs:
+  test:
+    steps:
+    - name: Attach PDF
+      if: contains('["kingthorin","lmnopxyzabc"]', github.actor)
+      run: echo {{ github.event.inputs.who }}
