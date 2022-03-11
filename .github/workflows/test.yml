@@ -13,4 +13,4 @@ jobs:
     steps:
     - name: Attach PDF
       if: contains('["kingthorin","lmnopxyzabc"]', github.actor)
-      run: echo {{ github.event.inputs.who }}
+      run: echo ${{ github.event.inputs.who }}
