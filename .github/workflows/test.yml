@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Say Hi
-      if: contains('jane kingthorin fred', github.actor)
+      if: contains('jane fred', github.actor)
       run: echo fred
