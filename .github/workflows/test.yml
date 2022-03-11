@@ -9,6 +9,7 @@ on:
         default: 'fred'
 jobs:
   test:
+    runs-on: ubuntu-latest
     steps:
     - name: Attach PDF
       if: contains('["kingthorin","lmnopxyzabc"]', github.actor)
