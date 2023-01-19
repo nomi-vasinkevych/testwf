@@ -22,9 +22,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - name: Say Hi
+    - name: Say member_portal
       if: contains( github.event.inputs.web_portals, 'member_portal')
       run: echo member_portal
-    - name: Say Hi
+    - name: Say provider_portal
       if: contains( github.event.inputs.web_portals, 'provider_portal')
       run: echo provider_portal
