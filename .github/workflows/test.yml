@@ -2,11 +2,29 @@ name: Test
 
 on:
   workflow_dispatch:
+    inputs:
+      releaseTag:
+        description: name of the release to deploy
+        required: true
+      deployTag:
+        description: Deploy Tag
+        required: true
+      environment:
+        description: Environment to Deploy to
+        required: false
+        default: sandbox
+      web_portals: 
+        description: WEB-portals to Deploy
+        required: false
+        default: member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, benefitsadmin_portal
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
     - name: Say Hi
-      if: contains(github.actor, 'jane')
-      run: echo fred
+      if: contains( github.event.inputs.web_portals, 'member_portal')
+      run: echo member_portal
+    - name: Say Hi
+      if: contains( github.event.inputs.web_portals, 'provider_portal')
+      run: echo provider_portal
