@@ -14,9 +14,9 @@ on:
         required: false
         default: sandbox
       web_portals: 
-        description: WEB-portals to Deploy
+        description: WEB-portals to Deploy.Possible values - member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, benefitsadmin_portal 
         required: false
-        default: member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, benefitsadmin_portal
+        default: none
 
 jobs:
   test:
