@@ -22,7 +22,7 @@ jobs:
           
     - name: Say provider_portal
       run: |
-          echo ${{github.event.inputs.web_portals}} \
+          echo "1234t - ${{github.event.inputs.web_portals}}" \
           echo ${{inputs.web_portals}} \
           echo djshfjshkjhdfkshdkfhjd11111111
             
