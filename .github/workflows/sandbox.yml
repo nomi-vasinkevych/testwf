@@ -28,10 +28,10 @@ jobs:
     deploy_test_2:
       uses: "./.github/workflows/test.yml"
       with:
-        web_portals: ${{  "teztsxtx"}}
+        web_portals: "teztsxtx"
         
     deploy_test_3:
       uses: "./.github/workflows/test.yml"
       with:
-        web_portals: ${{"-------------jjjjjjjjjjj"  }}
+        web_portals: -------------jjjjjjjjjjj
         
