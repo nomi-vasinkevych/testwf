@@ -2,6 +2,8 @@ name: NSL Deploy Pipeline - Sandbox Stable
 
 on:
   merge_group:
+  discussion:
+    types: [created, edited, answered]
   workflow_dispatch:
     inputs:
       web_portals: 
