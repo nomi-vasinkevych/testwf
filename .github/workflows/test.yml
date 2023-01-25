@@ -3,26 +3,10 @@ name: Test
 on:
   workflow_dispatch:
     inputs:
-      releaseTag:
-        description: name of the release to deploy
-        required: true
-      deployTag:
-        description: Deploy Tag
-        required: true
-      environment:
-        description: Environment to Deploy to
-        required: false
-        default: sandbox
       web_portals: 
         description: WEB-portals to Deploy member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, benefitsadmin_portal 
         required: false
-        default: none
-        type: choice
-        options:
-        - member_portal
-        - provider_portal
-        - claimsops_portal
-        - nomi_benefits_portal
+        default: member_portal, provider_portal, claimsops_portal
 
 jobs:
   test:
@@ -30,9 +14,10 @@ jobs:
     steps:
     - name: Say member_portal
       if: contains( github.event.inputs.web_portals, 'member_portal')
-      with: 
-        app_name: "member_portal"
       run: echo member_portal
     - name: Say provider_portal
       if: contains( github.event.inputs.web_portals, 'provider_portal')
-      run: echo provider_portal
+      run: echo provider_portal 
+          | echo ${{github.event.inputs.web_portals}} 
+          | echo ${{inputs.web_portals}} 
+            
