@@ -1,5 +1,7 @@
 name: NSL Deploy Pipeline - Sandbox Stable
-
+env:
+  web_portals: member_portal, provider_portal, claimsops_portal, nomi_benefits_portal
+  
 on:
   merge_group:
   push:
@@ -9,15 +11,27 @@ on:
       web_portals: 
         description: WEB-portals to Deploy
         required: true
-        default: member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, benefitsadmin_portal
+        default: member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, claimsops_portal
 jobs:
     test_envs: 
       runs-on: ubuntu-latest
       steps:
       - name: Say member_portal
-        run: "${{inputs.web_portals}}"
+        run: |
+              "${{inputs.web_portals}}" \
+              
     deploy_apps:
       uses: "./.github/workflows/test.yml"
       with:
-        web_portals: "${{inputs.web_portals}}"
+        web_portals: "member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, benefitsadmin_portal"
+        
+    deploy_test_2:
+      uses: "./.github/workflows/test.yml"
+      with:
+        web_portals: ${{ env.web_portals == 'claimsops_portal'  || "teztsxtx"}}
+        
+    deploy_test_3:
+      uses: "./.github/workflows/test.yml"
+      with:
+        web_portals: ${{"teztsxtx" ||  env.web_portals == 'claimsops_portal, nomi_benefits_portal, claimsops_portal'  }}
         
