@@ -28,10 +28,10 @@ jobs:
     deploy_test_2:
       uses: "./.github/workflows/test.yml"
       with:
-        web_portals: ${{ env.web_portals == 'claimsops_portal'  || "teztsxtx"}}
+        web_portals: ${{ env.web_portals || "teztsxtx"}}
         
     deploy_test_3:
       uses: "./.github/workflows/test.yml"
       with:
-        web_portals: ${{"teztsxtx" ||  env.web_portals == 'claimsops_portal, nomi_benefits_portal, claimsops_portal'  }}
+        web_portals: ${{"teztsxtx" ||  env.web_portals  }}
         
