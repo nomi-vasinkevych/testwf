@@ -1,6 +1,6 @@
 name: NSL Deploy Pipeline - Sandbox Stable
 env:
-  web_portals: "member_portal, provider_portal, claimsops_portal, nomi_benefits_portal"
+  web_portals: member_portal, provider_portal, claimsops_portal, nomi_benefits_portal
   
 on:
   merge_group:
@@ -18,20 +18,20 @@ jobs:
       steps:
       - name: Say member_portal
         run: |
-              "${{inputs.web_portals}}" \
+              "${{inputs.web_portals}}"
               
     deploy_apps:
       uses: "./.github/workflows/test.yml"
       with:
         web_portals: "member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, benefitsadmin_portal"
         
-    deploy_test_2:
+    deploy_2:
       uses: "./.github/workflows/test.yml"
       with:
-        web_portals: "teztsxtx"
+        web_portals: "deploy_2"
         
-    deploy_test_3:
+    deploy_3:
       uses: "./.github/workflows/test.yml"
       with:
-        web_portals: -------------jjjjjjjjjjj
-        
+        web_portals: deploy_3
+    
