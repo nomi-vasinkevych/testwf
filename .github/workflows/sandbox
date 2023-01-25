@@ -1,0 +1,17 @@
+name: NSL Deploy Pipeline - Sandbox Stable
+
+on:
+  merge_group:
+  workflow_dispatch:
+    inputs:
+      web_portals: 
+        description: WEB-portals to Deploy
+        required: true
+        default: member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, benefitsadmin_portal
+jobs:
+    deploy_apps:
+      needs: [ aws_login, set_env_vars, deploy_common ]
+      uses: "./test.yml"
+      with:
+        web_portals: "${{inputs.web_portals}}"
+        
