@@ -6,7 +6,7 @@ on:
       web_portals: 
         description: WEB-portals to Deploy member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, benefitsadmin_portal 
         required: false
-        default: none
+        default: member_portal, provider_portal, claimsops_portal
 
 jobs:
   test:
