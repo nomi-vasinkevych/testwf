@@ -1,11 +1,12 @@
 name: Test
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       web_portals: 
         description: WEB-portals to Deploy member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, benefitsadmin_portal 
         required: false
+        type: string
         default: member_portal, provider_portal, claimsops_portal
 
 jobs:
