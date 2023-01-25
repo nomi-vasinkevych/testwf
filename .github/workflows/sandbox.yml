@@ -13,12 +13,7 @@ on:
         required: true
         default: member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, claimsops_portal
 jobs:
-    test_envs: 
-      runs-on: ubuntu-latest
-      steps:
-      - name: Say member_portal
-        run: $web_portals
-              
+       
     deploy_apps:
       uses: "./.github/workflows/test.yml"
       with:
@@ -32,10 +27,8 @@ jobs:
     deploy_3:
       uses: "./.github/workflows/test.yml"
       with:
-        web_portals: deploy_3
+        web_portals: membe__r_portal, pro__vider_portal, claimsops_portal, nomi_benefits_portal, benefitsadmin_portal
         
     deploy_4:
       uses: "./.github/workflows/test.yml"
-      with:
-        web_portals: $web_portals
     
