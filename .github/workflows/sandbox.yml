@@ -10,8 +10,7 @@ on:
         default: member_portal, provider_portal, claimsops_portal, nomi_benefits_portal, benefitsadmin_portal
 jobs:
     deploy_apps:
-      needs: [ aws_login, set_env_vars, deploy_common ]
-      uses: "./test.yml"
+      uses: "./.github/workflows/test.yml"
       with:
         web_portals: "${{inputs.web_portals}}"
         
