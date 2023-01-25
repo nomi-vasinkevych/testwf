@@ -16,13 +16,15 @@ jobs:
     - name: Say member_portal
       if: contains( github.event.inputs.web_portals, 'member_portal')
       run: echo member_portal
-    - name: Say provider_portal
+    - name: github.event.inputs.web_portals
       if: contains( github.event.inputs.web_portals, 'provider_portal')
-      run: echo provider_portal  echo ${{github.event.inputs.web_portals}}           echo ${{inputs.web_portals}} 
+      run: echo test1  echo ${{github.event.inputs.web_portals}}  
+      
+    - name: inputs_web_portals 
+      run: echo test2  echo ${{inputs.web_portals}}  
           
     - name: Say provider_portal
       run: |
           echo "1234t - ${{github.event.inputs.web_portals}}" \
-          echo ${{inputs.web_portals}} \
-          echo djshfjshkjhdfkshdkfhjd11111111
+          echo ${{inputs.web_portals}} 
             
