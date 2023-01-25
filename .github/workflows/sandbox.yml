@@ -17,8 +17,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: Say member_portal
-        run: |
-              "${{inputs.web_portals}}"
+        run: "${{$web_portals}}"
               
     deploy_apps:
       uses: "./.github/workflows/test.yml"
@@ -34,4 +33,9 @@ jobs:
       uses: "./.github/workflows/test.yml"
       with:
         web_portals: deploy_3
+        
+    deploy_4:
+      uses: "./.github/workflows/test.yml"
+      with:
+        web_portals: "${{$web_portals}}"
     
